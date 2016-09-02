@@ -4,14 +4,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1>
-                    {{ $article->title }}
-                </h1>
-                <div>
-                    {!! nl2br(e($article->body)) !!}
-                </div>
-                <div>
-                    {{ $article->user->name }}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ $article->title }}
+                    </div>
+                    <div class="panel-body">
+                        {!! nl2br(e($article->body)) !!}
+                    </div>
+                    <div class="panel-footer">
+                        {{ $article->user->name }}
+                    </div>
                 </div>
                 <a href="{{ route('blog.home') }}" class="btn btn-default">Back</a>
             </div>
