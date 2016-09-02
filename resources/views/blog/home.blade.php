@@ -42,8 +42,7 @@ $(function () {
                                 </a>
                                 [{{ $article->user->name }}]
                                 <span class="pull-right">
-                                    @if($article->user->id == \Illuminate\Support\Facades\Auth::user()->id)
-
+                                    @if(\Illuminate\Support\Facades\Auth::check() && $article->user->id == \Illuminate\Support\Facades\Auth::user()->id)
                                            <a href="{{ route('blog.article.edit', ['article'=>$article->id])  }}">
                                                 Edit
                                             </a>
