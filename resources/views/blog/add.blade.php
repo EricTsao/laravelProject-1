@@ -19,6 +19,7 @@
                             <textarea class="form-control" id="body" name="body"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{{ route('blog.home') }}" class="btn btn-default">Back</a>
                     </form>
                 </div>
                 @if (count($errors) > 0)
