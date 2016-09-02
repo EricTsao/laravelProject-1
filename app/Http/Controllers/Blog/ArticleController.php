@@ -31,6 +31,11 @@ class ArticleController extends Controller
 
     public function apiAdd(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
         $user = $request->user();
 
         $article = new Article($request->all());
@@ -49,6 +54,11 @@ class ArticleController extends Controller
 
     public function apiEdit(Request $request, Article $article)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+
         $user = $request->user();
 
         if($user->id == $article->user->id)
