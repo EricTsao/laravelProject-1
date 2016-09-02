@@ -8,7 +8,7 @@
                     {{ $article->title }}
                 </h1>
                 <div>
-                    {{ $article->body }}
+                    {!! nl2br(e($article->body)) !!}
                 </div>
                 <div>
                     {{ $article->user->name }}
