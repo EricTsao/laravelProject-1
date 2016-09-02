@@ -33,22 +33,27 @@ $(function () {
                 <div>
                     <a href="{{ route('blog.article.add') }}" class="btn btn-primary">New Article</a>
                 </div>
-                <div class="articles">
+                <div class="articles panel-group">
                     @foreach($articles as $article)
-                        <li>
-                            <a href="{{ route('blog.article', ['article'=>$article->id])  }}">
-                                {{ $article->title }}
-                            </a>
-                            {{ $article->user->name }}
-                            @if($article->user->id == \Illuminate\Support\Facades\Auth::user()->id)
-                                <a href="{{ route('blog.article.edit', ['article'=>$article->id])  }}">
-                                    Edit
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="{{ route('blog.article', ['article'=>$article->id])  }}">
+                                    {{ $article->title }}
                                 </a>
-                                <a class="btnDelete" data-id="{{ $article->id }}">
-                                    Delete
-                                </a>
-                            @endif
-                        </li>
+                                [{{ $article->user->name }}]
+                                <span class="pull-right">
+                                    @if($article->user->id == \Illuminate\Support\Facades\Auth::user()->id)
+
+                                           <a href="{{ route('blog.article.edit', ['article'=>$article->id])  }}">
+                                                Edit
+                                            </a>
+                                            <a class="btnDelete" data-id="{{ $article->id }}">
+                                                Delete
+                                            </a>
+                                    @endif
+                                </span>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
