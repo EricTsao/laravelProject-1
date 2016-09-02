@@ -11,7 +11,7 @@
     <title>Laravel</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -84,6 +84,6 @@
     @yield('content')
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ url('/') }}/js/app.js"></script>
 </body>
 </html>
